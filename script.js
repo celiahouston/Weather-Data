@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             console.log('Failed to enter city name');
             alert('Please enter city name.')
-    }
-});
+       }
+    });
 }); 
 
 function addToSearchHistory(city) {
-    var historyElement = document.getElementById('History');
-    var historyItem = document.createElement('div');
+    var historyElement = document.getElementById('history');
+    var historyItem = document.createElement('button');
     historyItem.textContent = city;
-    historyItem.classList.add('history-item');
-    historyItem.addEventListener("click", function () {
+    historyItem.classList.add('btn', 'history-item');
+    historyItem.addEventListener('click', function () {
         getCityWeather(city);
     });
     historyElement.appendChild(historyItem);
@@ -47,7 +47,7 @@ function getCityWeather(city) {
 }
 
 function displayWeatherData(data) {
-    var weatherInfo = document.getElementById('weather-info');
+    var weatherInfo = document.getElementById('today');
     var cityName = data.name; 
     var date = new Date(data.dt * 1000); 
     var iconCode = data.weather[0].icon; 
@@ -62,58 +62,45 @@ function displayWeatherData(data) {
     <p>Wind Speed: ${data.wind.speed} </p>
     `; 
 }
-    // fetch(cityWeatherEndpoint)
-    //     .then((response) => {
-    //         if (!response.ok) {
-    //             throw new Error('City not found.');
-    //         } return response.json();
-    //     })
-    //     .then((data) => {
-    //         console.log('Weather Data: ', JSON.stringify(data, null, 2));
-    //         displayWeatherData(data);
-    //         addToSearchHistory(city);
-    //     })
-    //     .catch((error) => {
-    //         console.error('Error: ', error);
-    //         alert('City not found, please try again.');
-    //     });
 
-// function displayForecast(forecastData) {
-//     var forecast = document.getElementById('forecast');
-//     forecast.innerHTML = '';
+    fetch(cityWeatherEndpoint)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('City not found.');
+            } return response.json();
+        })
+        .then((data) => {
+            console.log('Weather Data: ', JSON.stringify(data, null, 2));
+            displayWeatherData(data);
+            addToSearchHistory(city);
+        })
+        .catch((error) => {
+            console.error('Error: ', error);
+            alert('City not found, please try again.');
+        });
 
-//     for (let index = 0; index < forecastData.length; index++) {
-//         var forecast = forecastData.list[index];
-//         // var forecastDate = 
-//         var forecastItem = document.createElement('div');
-//         forecastItem.classList.add('forecast-item');
+function displayForecast(forecastData) {
+    var forecast = document.getElementById('forecast');
+    var forecastCards = 
+    forecast.innerHTML = '';
 
-//         // date append 
+    for (let index = 0; index < forecastData.length; index++) {
+        var forecast = forecastData.list[index];
+        // var forecastDate = 
+        var forecastItem = document.createElement('div');
+        forecastItem.classList.add('forecast-item');
 
-//         var Temperature = document.createElement('p');
-//         Temperature.textContent = 'Temperature: ${forecast.main.temp}';
-//         forecastItem.appendChild(Temperature);
+        // date append 
 
-//         var humidity = document.createElement('p');
-//         humidity.textContent = 'Humidity: ${forecaste.main.humidity}';
-//         forecastItem.appendChild(forecastItem);
-//     }
-// }
+        var Temperature = document.createElement('p');
+        Temperature.textContent = 'Temperature: ${forecast.main.temp}';
+        forecastItem.appendChild(Temperature);
+
+        var humidity = document.createElement('p');
+        humidity.textContent = 'Humidity: ${forecaste.main.humidity}';
+        forecastItem.appendChild(forecastItem);
+    }
+}
 
 
 
-
-
-// add current date to page 
-
-// fetch weather data using API 
-
-// display weather infomation dynamically into HTML
-
-// use local storage to store searched cities 
-
-// event listeners for form submission 
-
-// retrieve city name from input 
-
-// fetch city weather data using coordinates from openweather API 

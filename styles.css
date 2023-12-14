@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-size: 2.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0;
+    padding: 20px;
+}
+
+.search-input {
+    padding:
+    margin:
+    font-size:0;
+    flex: 
+}
+
+.weather-header {
+    background-color: blue;
+    color: white; 
+}
+
+.col-lg-3 {
+    background-color: lightblue;
+    padding 10px;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+.history-button {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.weather-details {
+    padding: 10px; 
+}
+
+.forecast {
+    background-color: lightgray;
+    padding: 10px; 
+}
+
+.forecast-cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.forecast-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: calc(20% - 10px);
+}
