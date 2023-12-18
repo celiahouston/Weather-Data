@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function convertKelvinToCelsius(kelvin) {
-    return (kelvin = 273.15).toFixed(2);
+    return (kelvin - 273.15).toFixed(2);
 }
 
 function displaySearchHistory() {
