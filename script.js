@@ -97,7 +97,7 @@ function displayWeatherForecast(forecastData) {
         forecastCard.innerHTML = `
         <h3>${forecastDate.toDateString()}</h3>
         <img src="${forecastIconUrl}" alt="Weather Icon">
-        <p>Temperature: ${forecast.main.temp}°C</p>
+        <p>Temperature: ${convertKelvinToCelsius(forecast.main.temp)}°C</p>
         <p>Humidity: ${forecast.main.humidity}</p>
         <p>Wind Speed: ${forecast.wind.speed}</p>
         `; 
